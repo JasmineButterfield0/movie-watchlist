@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Watchlist</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== LANDING PAGE ===================== -->
+  <!-- Shown on first load; hidden when user clicks "Start Your Watchlist" -->
+  <section id="landing">
+    <div class="landing-card">
+      <div class="logo">🎬</div>
+      <h1>Movie Watchlist</h1>
+      <p class="tagline">
+        Never forget a movie again. Save films you want to watch,
+        mark them when you're done, and keep your list in sync — all in your browser.
+      </p>
+      <button id="start-btn" class="btn-primary">Start Your Watchlist</button>
+    </div>
+  </section>
+
+  <!-- ===================== MAIN APP ===================== -->
+  <!-- Hidden on load; revealed after clicking the landing button -->
+  <section id="app" class="hidden">
+
+    <!-- App header with title and movie count badge -->
+    <header class="app-header">
+      <h1>🎬 Movie Watchlist</h1>
+      <span id="movie-count" class="count-badge">0 movies</span>
+    </header>
+
+    <!-- ---- Add Movie Form ---- -->
+    <div class="add-movie-form">
+      <h2>Add a Movie</h2>
+      <div class="form-row">
+        <!-- Movie title input -->
+        <input
+          type="text"
+          id="movie-title"
+          placeholder="Movie title..."
+          maxlength="100"
+          autocomplete="off"
+        />
+        <!-- Genre selector (optional metadata) -->
+        <select id="movie-genre">
+          <option value="">Genre (optional)</option>
+          <option value="Action">Action</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Drama">Drama</option>
+          <option value="Horror">Horror</option>
+          <option value="Sci-Fi">Sci-Fi</option>
+          <option value="Romance">Romance</option>
+          <option value="Thriller">Thriller</option>
+          <option value="Animation">Animation</option>
+          <option value="Documentary">Documentary</option>
+          <option value="Other">Other</option>
+        </select>
+        <button id="add-btn" class="btn-primary">+ Add</button>
+      </div>
+      <!-- Inline error message shown if user submits empty input -->
+      <p id="error-msg" class="error hidden">Please enter a movie title.</p>
+    </div>
+
+    <!-- ---- Filter Tabs ---- -->
+    <!-- Lets the user switch between All / Unwatched / Watched views -->
+    <div class="filter-tabs">
+      <button class="tab active" data-filter="all">All</button>
+      <button class="tab" data-filter="unwatched">Unwatched</button>
+      <button class="tab" data-filter="watched">Watched</button>
+    </div>
+
+    <!-- ---- Movie List ---- -->
+    <!-- Movie cards are injected here by script.js -->
+    <ul id="movie-list"></ul>
+
+    <!-- Shown when the list is empty for the current filter -->
+    <p id="empty-msg" class="empty-msg hidden">No movies here yet. Add one above!</p>
+
+    <!-- ---- Clear All Button ---- -->
+    <div class="clear-row">
+      <button id="clear-btn" class="btn-danger hidden">Clear All</button>
+    </div>
+
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
